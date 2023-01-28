@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+import { Private } from "./apps/Private";
+import { Public } from "./apps/Public";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
+import { useEffect } from "react";
+import { getToken } from "./store/slice/token/tokenSlice";
+import { getUser } from "./store/slice/user/userSlice";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const dispatch = useDispatch();
+  const mode = useSelector((state) => state.mode.mode);
+
+  useEffect(() => {
+    dispatch(getToken(localStorage.getItem("token")))
+    dispatch(getUser(JSON.parse(localStorage.getItem("user"))))
+  }, [dispatch])
+
+  const token = useSelector((state) => state.token.token);
+
+  if(token) {
+    return <div style={{backgroundColor: mode ? '#333' : '#fff'}}><Private/></div>
+  }else{
+    return <Public/>
+  }
 }
 
 export default App;

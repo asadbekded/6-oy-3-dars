@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "email": "asadbek@gmail.com",
+      "password": "$2a$10$K7mZqUcewwxMMzpAuQzaV.n2O3CoCjnVhocytMsWNzYgV7y0OKWtS",
+      "first_name": "Asadbek",
+      "last_name": "Ergashev",
+      "id": 1
+    },
+    {
+      "email": "ravshanjon@gmail.com",
+      "password": "$2a$10$WeYBvWKbf4lYugXsTrTKZuHPM9FrLRWG3RL8DJZd/PziG6ktWFfZe",
+      "first_name": "Ravshanjon",
+      "last_name": "Zakirov",
+      "id": 2
+    },
+    {
+      "email": "sardor@gmail.com",
+      "password": "$2a$10$hpT.ndXxAa8TVMY6nnagW.bYtv0sCP44mdzZLs4LoOa01RTiZAam6",
+      "first_name": "Sardorbek",
+      "last_name": "Ergashev",
+      "id": 3
+    },
+    {
+      "email": "sulton@gmail.com",
+      "password": "$2a$10$8JGhKrKBLIWfj/dlRnuzMeAFgHFq6FbuFyRsXb4sN94WnbDe/NcdK",
+      "first_name": "Sultonbek",
+      "last_name": "Mahkambekov",
+      "id": 4
+    }
+  ],
+  "posts": [
+    {
+      "post_title": "React",
+      "post_body": "Создавать интерактивные пользовательские интерфейсы на React — приятно и просто. Вам достаточно описать, как части интерфейса приложения выглядят в разных состояниях.",
+      "user_id": 1,
+      "user_name": "Asadbek Ergashev",
+      "time": "28.01.2023 15:07",
+      "id": 1
+    },
+    {
+      "post_title": "Redux toolkit",
+      "post_body": "Includes utilities to simplify common use cases like store setup, creating reducers, immutable update logic, and more.",
+      "user_id": 2,
+      "user_name": "Ravshanjon Zakirov",
+      "time": "28.01.2023 15:25",
+      "id": 3
+    },
+    {
+      "post_title": "Html",
+      "post_body": "язык разметки для создания структуры веб-страницы и представления контента. Благодаря разметке браузер знает в каком порядке отображать элементы, и что они значат.",
+      "user_id": 4,
+      "user_name": "Sultonbek Mahkambekov",
+      "time": "28.01.2023 15:40",
+      "id": 4
+    },
+    {
+      "post_title": "CSS",
+      "post_body": "CSS is the language we use to style an HTML document.  CSS describes how HTML elements should be displayed.  This tutorial will teach you CSS from basic to advanced.",
+      "user_id": 4,
+      "user_name": "Sultonbek Mahkambekov",
+      "time": "28.01.2023 18:19",
+      "id": 5
+    },
+    {
+      "post_title": "SASS",
+      "post_body": "Track your progress with the free \"My Learning\" program here at W3Schools.  Log in to your account, and start earning points!  This is an optional feature. You can study W3Schools without using My Learning.",
+      "user_id": 1,
+      "user_name": "Asadbek Ergashev",
+      "time": "28.01.2023 19:37",
+      "id": 6
+    }
+  ]
+}
