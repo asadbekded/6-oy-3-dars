@@ -10,7 +10,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useRef, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getToken } from "../../store/slice/token/tokenSlice";
 import { getUser } from "../../store/slice/user/userSlice";
@@ -22,6 +22,7 @@ export const Register = () => {
   const mail = useRef();
   const password = useRef();
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
@@ -37,6 +38,7 @@ export const Register = () => {
         localStorage.setItem("user", JSON.stringify(res.data.user))
         dispatch(getToken(res.data.accessToken))
         dispatch(getUser(res.data.user))
+        navigate('/')
       }
     })
     .catch(err => console.log(err))

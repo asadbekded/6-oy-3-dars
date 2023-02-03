@@ -1,9 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Modal } from "../../components/Modal/Modal";
+// import { Modal } from "../../components/Modal/Modal";
+import ReactModal from "react-modal";
 import { getPosts } from "../../store/slice/posts/postsSlice";
 import axios from "axios";
 import { Card } from "../../components/Card/Card";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light-border.css";
+import "tippy.js/animations/scale.css";
+
+ReactModal.setAppElement("#root");
 
 export const Profile = () => {
   const user = useSelector((state) => state.user.user);
@@ -53,18 +60,45 @@ export const Profile = () => {
             <a href={`mailto:${user.email}`}>{user.email}</a>
           </div>
 
-          <button onClick={() => setModal(true)} className="btn btn-primary">
-            Create Post +
-          </button>
+          <Tippy
+            content="Create post"
+            theme="light-border"
+            animation="scale"
+            duration={600}
+          >
+            <button onClick={() => setModal(true)} className="btn btn-primary">
+              Create Post +
+            </button>
+          </Tippy>
         </div>
 
         <ul className="p-o list-unstyled w-75 mt-4">
-          {posts.map((el) => (<Card key={el.id} el={el}/>))}
+          {posts.map((el) => (
+            <Card key={el.id} el={el} />
+          ))}
         </ul>
       </div>
 
       {modal ? (
-        <Modal modal={modal} setModal={setModal} title={"POST"}>
+        <ReactModal
+          isOpen={modal}
+          onRequestClose={() => setModal(false)}
+          style={{
+            overlay: {
+              backgroundColor: "rgba(0,0,0,0.4)",
+            },
+            content: {
+              width: "40%",
+              height: "35%",
+              top: "0",
+              left: "0",
+              right: "0",
+              bottom: "0",
+              margin: "auto",
+            },
+          }}
+        >
+          <h3 className="mb-2">POST</h3>
           <form onSubmit={handleSubmit}>
             <input
               ref={postRef}
@@ -91,7 +125,7 @@ export const Profile = () => {
               </button>
             </div>
           </form>
-        </Modal>
+        </ReactModal>
       ) : (
         ""
       )}

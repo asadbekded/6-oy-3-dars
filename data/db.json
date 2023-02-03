@@ -27,17 +27,16 @@
       "first_name": "Sultonbek",
       "last_name": "Mahkambekov",
       "id": 4
+    },
+    {
+      "email": "xiwang@gmail.com",
+      "password": "$2a$10$7IUS9S5l4FVcZ2THTVpRRescZmpdm8bha7FHumjet8vZmG1ua88WO",
+      "first_name": "Umidbek",
+      "last_name": "Xaitbayev",
+      "id": 5
     }
   ],
   "posts": [
-    {
-      "post_title": "React",
-      "post_body": "Создавать интерактивные пользовательские интерфейсы на React — приятно и просто. Вам достаточно описать, как части интерфейса приложения выглядят в разных состояниях.",
-      "user_id": 1,
-      "user_name": "Asadbek Ergashev",
-      "time": "28.01.2023 20:58",
-      "id": 1
-    },
     {
       "post_title": "Redux toolkit",
       "post_body": "Includes utilities to simplify common use cases like store setup, creating reducers, immutable update logic, and more.",
@@ -64,11 +63,27 @@
     },
     {
       "post_title": "SASS",
-      "post_body": "Track your progress with the free \"My Learning\" program here at W3Schools.  Log in to your account, and start earning points!  This is an optional feature. You can study W3Schools without using My Learning.",
+      "post_body": "Track your progress with the free \"My Learning\" program here at W3Schools.  Log in to your account, and start earning points!  This is an optional feature. You can study W3Schools without using My learning.",
       "user_id": 1,
       "user_name": "Asadbek Ergashev",
-      "time": "28.01.2023 19:37",
+      "time": "03.02.2023 15:09",
       "id": 6
+    },
+    {
+      "post_title": "JavaScript Method Object",
+      "post_body": "In JavaScript, the this keyword refers to an object.  Which object depends on how this is being invoked (used or called).  The this keyword refers to different objects depending on how it is used:",
+      "user_id": 5,
+      "user_name": "Umidbek Xaitbayev",
+      "time": "28.01.2023 21:03",
+      "id": 7
+    },
+    {
+      "post_title": "React",
+      "post_body": "Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar Lorem ipsum dollar",
+      "user_id": 1,
+      "user_name": "Asadbek Ergashev",
+      "time": "03.02.2023 15:24",
+      "id": 8
     }
   ]
 }

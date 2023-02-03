@@ -1,7 +1,13 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { Modal } from "../Modal/Modal";
+import { MdEdit } from "react-icons/md";
+import { AiFillDelete } from "react-icons/ai";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light-border.css";
+import "tippy.js/animations/scale.css";
+import ReactModal from "react-modal";
 
 export const Card = ({ el }) => {
   const mode = useSelector((state) => state.mode.mode);
@@ -19,18 +25,18 @@ export const Card = ({ el }) => {
   const bodyRef = useRef();
 
   const handleEdit = (evt) => {
-    evt.preventDefault()
-    setEditModal(false)
-    axios.put('http://localhost:8080/posts/' + el.id,{
-        post_title: postRef.current.value,
-        post_body: bodyRef.current.value,
-        user_id: user.id,
-        user_name: user.first_name + " " + user.last_name,
-        time:
-          date.toLocaleDateString() +
-          " " +
-          date.toLocaleTimeString().substring(0, 5),
-    })
+    evt.preventDefault();
+    setEditModal(false);
+    axios.put("http://localhost:8080/posts/" + el.id, {
+      post_title: postRef.current.value,
+      post_body: bodyRef.current.value,
+      user_id: user.id,
+      user_name: user.first_name + " " + user.last_name,
+      time:
+        date.toLocaleDateString() +
+        " " +
+        date.toLocaleTimeString().substring(0, 5),
+    });
   };
 
   return (
@@ -42,18 +48,54 @@ export const Card = ({ el }) => {
       >
         <h4>{el.post_title}</h4>
         <p>{el.post_body}</p>
-        <button className="btn btn-danger" onClick={() => handleDelete(el.id)}>
-          Del
-        </button>
-        <button
-          className="btn btn-warning ms-4"
-          onClick={() => setEditModal(true)}
+        <Tippy
+          content="Delete post"
+          theme="light-border"
+          placement="bottom"
+          animation="scale"
+          duration={600}
         >
-          Edit
-        </button>
+          <button style={{ border: "none", backgroundColor: "transparent" }}>
+            <AiFillDelete
+              style={{ cursor: "pointer" }}
+              onClick={() => handleDelete(el.id)}
+              color="red"
+              size="25px"
+            />
+          </button>
+        </Tippy>
+        <Tippy content='Edit post' theme="light-border" placement="bottom" animation='scale' duration={600}>
+          <button style={{ border: "none", backgroundColor: "transparent" }}>
+            <MdEdit
+              style={{ cursor: "pointer" }}
+              className="ms-3"
+              onClick={() => setEditModal(true)}
+              color="orange"
+              size="25px"
+            />
+          </button>
+        </Tippy>
       </li>
       {editModal ? (
-        <Modal modal={editModal} setModal={setEditModal} title={"Edit"}>
+        <ReactModal
+          isOpen={editModal}
+          onRequestClose={() => setEditModal(false)}
+          style={{
+            overlay: {
+              backgroundColor: "rgba(0,0,0,0.4)",
+            },
+            content: {
+              width: "50%",
+              height: "35%",
+              top: "0",
+              left: "0",
+              right: "0",
+              bottom: "0",
+              margin: "auto",
+            },
+          }}
+        >
+          <h3>Edit Post</h3>
           <form onSubmit={handleEdit}>
             <input
               className="form-control mb-2"
@@ -82,7 +124,7 @@ export const Card = ({ el }) => {
               </button>
             </div>
           </form>
-        </Modal>
+        </ReactModal>
       ) : (
         ""
       )}
