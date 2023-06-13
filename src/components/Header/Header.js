@@ -18,6 +18,7 @@ export const Header = () => {
   const handleLogOut = () => {
     dispatch(removeToken(localStorage.removeItem("token")));
     dispatch(removeUser(JSON.parse(localStorage.removeItem("user"))));
+
   };
 
   const mode = useSelector((state) => state.mode.mode);
